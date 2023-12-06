@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Switch, Route, useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
+import Price from "./Price";
+import Chart from "./Chart";
 
 const Title = styled.h1`
   color: ${(props) => props.theme.accentColor};
@@ -167,8 +169,12 @@ function Coin() {
             </OverviewItem>
           </Overview>
           <Switch>
-            <Route path={`/${coinId}/price`}>{/* <Price /> */}</Route>
-            <Route path={`/${coinId}/chart`}>{/* <Chart /> */}</Route>
+            <Route path={`/:coinId/price`}>
+              <Price />
+            </Route>
+            <Route path={`/:coinId/chart`}>
+              <Chart />
+            </Route>
           </Switch>
         </>
       )}
